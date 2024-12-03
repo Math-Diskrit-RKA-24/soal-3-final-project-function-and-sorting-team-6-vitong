@@ -63,3 +63,19 @@ def displayMatchResult():
             f"Rank {i}: {player['name']} | Score: {player['score']} | Health: {player['health']}")
 
     return PlayerList
+
+initPlayers()
+
+
+addPlayer(createNewPlayer("Ajip", damage=20, defensePower=10))
+addPlayer(createNewPlayer("Vito", damage=0, defensePower=20))
+addPlayer(createNewPlayer("Henry", damage=10, defensePower=5))
+removePlayer("Tono")
+
+
+attackPlayer(PlayerList[0], PlayerList[1])  # Ajip menyerang Vito
+attackPlayer(PlayerList[1], PlayerList[2])  # Vito menyerang Henry
+attackPlayer(PlayerList[0], PlayerList[2]) #Ajip menyerang Henry
+
+
+displayMatchResult()
