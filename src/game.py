@@ -33,9 +33,12 @@ def removePlayer(name):
 
 # nomor 5
 
-
 def setPlayer(player, key, value):
-    player[key] = value
+    if key in player:           #Update atribut pemain        
+        player[key] = value
+    else:
+        print("ngak ada key")
+
 
 # nomor 6
 
@@ -64,18 +67,3 @@ def displayMatchResult():
 
     return PlayerList
 
-initPlayers()
-
-
-addPlayer(createNewPlayer("Ajip", damage=20, defensePower=10))
-addPlayer(createNewPlayer("Vito", damage=0, defensePower=20))
-addPlayer(createNewPlayer("Henry", damage=10, defensePower=5))
-removePlayer("Tono")
-
-
-attackPlayer(PlayerList[0], PlayerList[1])  # Ajip menyerang Vito
-attackPlayer(PlayerList[1], PlayerList[2])  # Vito menyerang Henry
-attackPlayer(PlayerList[0], PlayerList[2]) #Ajip menyerang Henry
-
-
-displayMatchResult()
