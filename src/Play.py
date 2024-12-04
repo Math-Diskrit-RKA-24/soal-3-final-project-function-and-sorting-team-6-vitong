@@ -2,9 +2,13 @@ import game as g
 
 g.initPlayers()
 
-g.addPlayer(g.createNewPlayer('Ajip', damage=20, defensePower=10))
-g.addPlayer(g.createNewPlayer('Vito', damage=0, defensePower=20))
-g.addPlayer(g.createNewPlayer('Henry', damage=10, defensePower=5))
+
+damageajip = int(input("berapa nich damage ajip: "))
+damagevito = int(input("berapa nich damage vito: "))
+damagehenry = int(input("berapa nich damage henry: "))
+g.addPlayer(g.createNewPlayer('Ajip', damage=damageajip, defensePower=10))
+g.addPlayer(g.createNewPlayer('Vito', damage=damagevito, defensePower=20))
+g.addPlayer(g.createNewPlayer('Henry', damage=damagehenry, defensePower=5))
 print(g.PlayerList)
 
 
