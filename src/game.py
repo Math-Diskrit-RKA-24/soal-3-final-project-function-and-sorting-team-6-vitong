@@ -33,9 +33,12 @@ def removePlayer(name):
 
 # nomor 5
 
-
 def setPlayer(player, key, value):
-    player[key] = value
+    if key in player:           #Update atribut pemain        
+        player[key] = value
+    else:
+        print("ngak ada key")
+
 
 # nomor 6
 
@@ -63,3 +66,4 @@ def displayMatchResult():
             f"Rank {i}: {player['name']} | Score: {player['score']} | Health: {player['health']}")
 
     return PlayerList
+
