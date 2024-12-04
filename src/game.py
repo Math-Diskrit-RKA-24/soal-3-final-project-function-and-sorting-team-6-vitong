@@ -33,8 +33,9 @@ def removePlayer(name):
 
 # nomor 5
 
+
 def setPlayer(player, key, value):
-    if key in player:           #Update atribut pemain        
+    if key in player:  # Update atribut pemain
         player[key] = value
     else:
         print("ngak ada key")
@@ -46,7 +47,9 @@ def setPlayer(player, key, value):
 def attackPlayer(attacker, target):
     if target['defense'] == True:
         damaged = max(0, attacker['damage'] - target['defensePower'])
-        setPlayer(attacker, 'score', attacker['score'] + 0.8)
+        attackScore = round(
+            attacker["score"] + 1 - 1 / target["defensePower"], 2)
+        setPlayer(attacker, 'score', attackScore)
 
     else:
         damaged = attacker['damage']
@@ -58,12 +61,15 @@ def attackPlayer(attacker, target):
     # nomor 7
 
 
+def something(player):
+    return -player['score'], -player['health']
+
+
 def displayMatchResult():
-    PlayerList.sort(key=lambda y: (-y['score'], -y['health']))
+    PlayerList.sort(key=something)
     for i, player in enumerate(PlayerList, 1):
 
         print(
             f"Rank {i}: {player['name']} | Score: {player['score']} | Health: {player['health']}")
 
     return PlayerList
-
